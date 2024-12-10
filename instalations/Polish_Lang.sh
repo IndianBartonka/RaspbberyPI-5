@@ -24,14 +24,6 @@ echo ""
 echo "Zmienianie lokalizacji na polską..."
 update-locale LANG=pl_PL.UTF-8
 
-echo "=================="
-echo ""
-echo -e "\e[31mJEŚLI POLSKI NIE JEST ZAZNACZONY, ZAZNACZ GO W OKNIE KONFIGURACJI\e[0m"
-echo ""
-echo "=================="
-sleep 2
-dpkg-reconfigure locales
-
 echo ""
 echo "Za 5 sekund system zostanie zrestartowany..."
 sleep 5
