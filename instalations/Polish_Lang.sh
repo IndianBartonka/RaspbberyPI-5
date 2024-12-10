@@ -3,7 +3,8 @@
 # Sprawdzanie uprawnień
 if [[ $EUID -ne 0 ]]; then
    echo ""
-   echo "Uruchom ten skrypt jako root lub za pomocą sudo."
+   //TODO: Dodaj w innych skryptach też ten tekst na czerwono
+   echo -e "\e[31mUruchom ten skrypt jako root lub za pomocą sudo.\e[0m"
    exit 1
 fi
 
@@ -25,10 +26,10 @@ update-locale LANG=pl_PL.UTF-8
 
 echo "=================="
 echo ""
-echo -e "\e[31mJEŚLI POLSKI NIE JEST ZAZNACZONY ZAZNACZ GO\e[0m"
+echo -e "\e[31mJEŚLI POLSKI NIE JEST ZAZNACZONY, ZAZNACZ GO W OKNIE KONFIGURACJI\e[0m"
 echo ""
 echo "=================="
-sleep 5
+sleep 2
 dpkg-reconfigure locales
 
 echo ""
