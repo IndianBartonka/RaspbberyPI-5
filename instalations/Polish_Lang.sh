@@ -12,10 +12,6 @@ echo "Aktualizowanie systemu..."
 apt update && apt upgrade -y
 
 echo ""
-echo "Instalowanie polskiej paczki językowej..."
-apt install -y locales language-pack-pl
-
-echo ""
 echo "Odkomentowywanie pl_PL w /etc/locale.gen"
 sed -i 's/^# *\(pl_PL.UTF-8 UTF-8\)/\1/' /etc/locale.gen
 
@@ -26,6 +22,14 @@ locale-gen
 echo ""
 echo "Zmienianie lokalizacji na polską..."
 update-locale LANG=pl_PL.UTF-8
+
+echo "=================="
+echo ""
+echo -e "\e[31mJEŚLI POLSKI NIE JEST ZAZNACZONY ZAZNACZ GO\e[0m"
+echo ""
+echo "=================="
+sleep 5
+dpkg-reconfigure locales
 
 echo ""
 echo "Za 5 sekund system zostanie zrestartowany..."
