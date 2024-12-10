@@ -1,9 +1,9 @@
 #!/bin/bash
+# Autorem jest IndianBartonka
 
 # Sprawdzanie uprawnień
 if [[ $EUID -ne 0 ]]; then
    echo ""
-   //TODO: Dodaj w innych skryptach też ten tekst na czerwono
    echo -e "\e[31mUruchom ten skrypt jako root lub za pomocą sudo.\e[0m"
    exit 1
 fi
