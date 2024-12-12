@@ -1,0 +1,1 @@
+Aby zainstalowac Tailscale zajrzyj tu: https://tailscale.com/download
