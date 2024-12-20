@@ -73,3 +73,5 @@ ldconfig
 
 echo ""
 echo "Box64 został pomyślnie zainstalowany!"
+
+rm -r $WORK_DIR
