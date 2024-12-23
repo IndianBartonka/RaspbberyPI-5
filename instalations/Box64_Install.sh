@@ -11,6 +11,8 @@ fi
 # Zmienna dla folderu roboczego
 WORK_DIR="$HOME/box64_build"
 
+rm -r $WORK_DIR
+
 # Tworzenie folderu roboczego
 mkdir -p "$WORK_DIR"
 cd "$WORK_DIR" || exit 1
@@ -73,5 +75,3 @@ ldconfig
 
 echo ""
 echo "Box64 został pomyślnie zainstalowany!"
-
-rm -r $WORK_DIR
