@@ -1,5 +1,5 @@
 #!/bin/bash
-# Autorem jest ChatGPT
+# Autorem jest ChatGPT wraz z Indianem
 
 # Sprawdzanie uprawnień
 if [[ $EUID -ne 0 ]]; then
@@ -44,7 +44,7 @@ cd build || exit 1
 # Konfiguracja CMake
 echo ""
 echo "Konfigurowanie CMake..."
-cmake .. -DRPI4=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo || {
+cmake .. -D RPI5ARM64=1 -D CMAKE_BUILD_TYPE=RelWithDebInfo -DARM_DYNAREC=ON || {
     echo "Konfiguracja CMake nie powiodła się."
     exit 1
 }
