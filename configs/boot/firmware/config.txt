@@ -14,6 +14,7 @@
 hdmi_group=1 # Określa grupę HDMI (1 = CEA dla TV, 2 = DMT dla monitorów komputerowych).
 hdmi_drive=2 # Wymusza przesyłanie zarówno obrazu, jak i dźwięku przez HDMI.
 
+hdmi_force_hotplug=1 #Zmusza system do traktowania HDMI jak aktywne wyjście dźwięku, nawet jeśli nie jest wykrywane od razu.
 hdmi_force_edid_audio=1 # Upewnia się, że urządzenie HDMI obsługuje dźwięk, nawet jeśli nie zgłasza wsparcia w EDID.
 
 #--------------------
