@@ -22,6 +22,14 @@ curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/inst
 
 ---
 
+## Steam
+
+```bash
+curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/instalations/Steam_Install.sh | sudo bash
+```
+
+---
+
 ## Polish Lang
 
 ```bash
