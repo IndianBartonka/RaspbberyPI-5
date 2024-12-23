@@ -1,5 +1,6 @@
 #!/bin/bash
 # Autorem jest IndianBartonka Z ChatemGPT
+# Źródłem informacij było: https://www.xda-developers.com/install-steam-on-raspberry-pi/
 
 # Sprawdzanie uprawnień
 if [[ $EUID -ne 0 ]]; then
