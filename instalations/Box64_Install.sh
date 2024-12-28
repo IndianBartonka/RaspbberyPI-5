@@ -1,17 +1,17 @@
 #!/bin/bash
 # Autorem jest ChatGPT wraz z Indianem
+set -e
 
 # Sprawdzanie uprawnień
 if [[ $EUID -ne 0 ]]; then
    echo ""
-    echo -e "\e[31mUruchom ten skrypt jako root lub za pomocą sudo.\e[0m"
+   echo -e "\e[31mUruchom ten skrypt jako root lub za pomocą sudo.\e[0m"
    exit 1
 fi
 
 # Zmienna dla folderu roboczego
 WORK_DIR="$HOME/box64_build"
-
-rm -r $WORK_DIR
+[[ -d $WORK_DIR ]] && rm -r $WORK_DIR
 
 # Tworzenie folderu roboczego
 mkdir -p "$WORK_DIR"
@@ -40,8 +40,7 @@ git clone https://github.com/ptitSeb/box64.git || {
 cd box64 || exit 1
 
 # Tworzenie folderu build
-mkdir build
-cd build || exit 1
+mkdir -p build && cd build
 
 # Konfiguracja CMake
 echo ""
@@ -53,7 +52,6 @@ cmake .. -D RPI5ARM64=1 -D CMAKE_BUILD_TYPE=RelWithDebInfo -DARM_DYNAREC=ON || {
 
 # Kompilacja
 echo ""
-echo "Kompilowanie Box64..."
 make -j"$(nproc)" || {
    echo ""
     echo "Kompilacja Box64 nie powiodła się."
@@ -72,6 +70,14 @@ make install || {
 echo ""
 echo "Aktualizacja dynamicznego linkera..."
 ldconfig
+
+# Restartowanie systemd-binfmt
+echo ""
+echo "Restartowanie systemd-binfmt..."
+systemctl restart systemd-binfmt || {
+    echo "Nie udało się zrestartować systemd-binfmt. Sprawdź logi."
+    exit 1
+}
 
 echo ""
 echo "Box64 został pomyślnie zainstalowany!"
