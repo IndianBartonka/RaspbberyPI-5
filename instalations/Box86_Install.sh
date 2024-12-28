@@ -8,6 +8,14 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+echo -e "\e[31mBox86 to jebane gówno pewnie nie skompiluje sie poprawnie.\e[0m"
+echo -e "\e[31mBox86 to jebane gówno pewnie nie skompiluje sie poprawnie.\e[0m"
+echo -e "\e[31mBox86 to jebane gówno pewnie nie skompiluje sie poprawnie.\e[0m"
+echo -e "\e[31mBox86 to jebane gówno pewnie nie skompiluje sie poprawnie.\e[0m"
+echo -e "\e[31mBox86 to jebane gówno pewnie nie skompiluje sie poprawnie.\e[0m"
+echo -e "\e[31mBox86 to jebane gówno pewnie nie skompiluje sie poprawnie.\e[0m"
+sleep 6
+
 WORK_DIR="$HOME/box86_build"
 [[ -d $WORK_DIR ]] && rm -r $WORK_DIR
 
@@ -25,7 +33,7 @@ apt update
 
 echo ""
 echo "Instalowanie zależności dla armhf..."
-apt install -y libc6:armhf gcc-arm-linux-gnueabihf
+apt install -y libc6:armhf gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 
 echo ""
 echo "Aktualizowanie systemu..."
@@ -34,6 +42,7 @@ apt upgrade -y
 echo ""
 echo "Instalowanie zależności..."
 apt install -y build-essential cmake git
+apt install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 
 echo ""
 echo "Klonowanie repozytorium Box86 z GitHuba..."
@@ -48,17 +57,18 @@ mkdir -p build && cd build
 
 echo ""
 echo "Konfigurowanie CMake..."
-cmake .. \
--DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc \
--DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g++ \
--DARM_DYNAREC=ON \
--DCMAKE_BUILD_TYPE=RelWithDebInfo -DRPI4ARM64=1 || {
+
+export CC=/usr/bin/arm-linux-gnueabihf-gcc
+export CXX=/usr/bin/arm-linux-gnueabihf-g++
+
+cmake .. -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX -DRPI4ARM64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo || {
     echo "Konfiguracja CMake nie powiodła się."
     exit 1
 }
 
 echo ""
 echo "Kompilowanie Box86..."
+make clean
 make -j"$(nproc)" || {
     echo ""
     echo "Kompilacja Box86 nie powiodła się."
@@ -67,7 +77,11 @@ make -j"$(nproc)" || {
 
 echo ""
 echo "Instalowanie Box86..."
-make install
+make install || {
+    echo ""
+    echo "Instalacja Box86 nie powiodła się."
+    exit 1
+}
 
 echo ""
 echo "Aktualizacja dynamicznego linkera..."
