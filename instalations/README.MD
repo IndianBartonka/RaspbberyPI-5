@@ -20,6 +20,12 @@ curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/inst
 curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/instalations/Box64_Install.sh | sudo bash
 ```
 
+## Box86
+
+```bash
+curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/instalations/Box86_Install.sh | sudo bash
+```
+
 ---
 
 ## Steam
