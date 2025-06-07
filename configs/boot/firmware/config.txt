@@ -24,7 +24,7 @@ dtparam=nvme
 
 #--------------------
 #Wentylator
-dtparam=fan_temp0=45000
+dtparam=fan_temp0=50000
 dtparam=fan_temp0_hyst=5000
 dtparam=fan_temp0_speed=75
 
