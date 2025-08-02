@@ -18,6 +18,11 @@ curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/inst
 curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/instalations/Basic.sh | sudo bash
 ```
 
+## Install Smaba
+
+```bash
+curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/instalations/Samba_Install.sh | sudo bash
+```
 
 ## Box64
 
