@@ -5,6 +5,13 @@
 ## Tu wiecej info
 
 
+## Install Important
+<sup>Instaluje najażniejsze instalacje po koleji </sup>
+
+```bash
+curl -s https://raw.githubusercontent.com/IndianBartonka/RaspbberyPI-5/main/instalations/Install_Important.sh | sudo bash
+```
+
 ## Basic
 
 ```bash
