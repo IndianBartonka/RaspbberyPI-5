@@ -25,7 +25,7 @@ apt install -y firefox
 # Zainstaluj gnome-disk-utility
 echo ""
 echo "Instalowanie gnome-disk-utility..."
-apt install -y gnome-disk-utilit
+apt install -y gnome-disk-utility
 
 # Zainstaluj gparted
 echo ""
