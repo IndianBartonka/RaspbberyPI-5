@@ -20,15 +20,15 @@ hdmi_force_edid_audio=1 # Upewnia się, że urządzenie HDMI obsługuje dźwięk
 #--------------------
 #Włączenie szybszego dysku ssd
 dtparam=pciex1_gen=3
-dtparam=nvme
+#dtparam=nvme
 
 #--------------------
 #Wentylator
-dtparam=fan_temp0=50000
+dtparam=fan_temp0=40000
 dtparam=fan_temp0_hyst=5000
 dtparam=fan_temp0_speed=75
 
-dtparam=fan_temp1=55000
+dtparam=fan_temp1=50000
 dtparam=fan_temp1_hyst=5000
 dtparam=fan_temp1_speed=125
 
