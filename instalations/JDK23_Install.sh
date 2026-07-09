@@ -3,7 +3,7 @@
 # Skrypt instalujący GraalVM CE
 
 # Definiowanie URL do pliku GraalVM
-GRAALVM_URL="https://download.oracle.com/graalvm/23/latest/graalvm-jdk-23_linux-aarch64_bin.tar.gz"
+GRAALVM_URL="https://gds.oracle.com/download/graal/25i1/latest/graalvm-jdk-25i1-25_linux-aarch64_bin.tar.gz"
 GRAALVM_DIR="/opt/graalvm"
 
 # Pobieranie pliku GraalVM
